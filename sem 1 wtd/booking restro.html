@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Slot Booking</title>
+    <link rel="icon" type="image/x-icon" href="favicon 1.jpg">
+    <style>
+        body {
+            background-color: hsl(32, 45%, 53%);
+            font-family: 'Georgia', serif;
+            font-size: 30px;
+            background-image: url("booking 1.jpg"); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-family: 'Cursive', sans-serif;
+            text-align: center;
+            color: rgb(252, 106, 106);
+        }
+        form {
+            max-width: 500px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        button {
+            background-color: rgb(252, 106, 106);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: rgb(230, 85, 85);
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1><i><b>Book Your Slot</b></i></h1>
+        <label for="date"><b>Date:</b></label>
+        <input type="date" id="date" name="Date" required>
+        
+        <label for="time"><b>Time:</b></label>
+        <input type="time" id="time" name="time" required>
+        
+        <label for="Npeop"><b>Number of People:</b></label>
+        <input type="number" id="Npeop" name="Npeop" min="1" max="20" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

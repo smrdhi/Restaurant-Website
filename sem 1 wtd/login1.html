@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign-Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('out.jpg');
+            /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h2 {
+            text-align: center;
+            color: 90deg, skyblue, #87CEEB, #4682B4;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .input-group input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .input-group span {
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-right: 1px solid #ddd;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5A9BD6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .google-login {
+            background-color: #dd4b3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .google-login span {
+            margin-left: 10px;
+        }
+
+        .google-login:hover {
+            background-color: #333;
+        }
+
+        .toggle-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .toggle-link a {
+            color: #4C;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            display: none;
+        }
+
+        .loading span {
+            font-size: 1.5em;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login / Sign-Up</h2>
+
+        <!-- Login Form -->
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <span>📧</span>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <span>🔒</span>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+            </div>
+            <p class="error-message" id="loginError">Invalid email or password.</p>
+            <button type="submit">Login</button>
+            <button type="button" class="google-login" onclick="googleLogin()">
+                <span>🔗</span><span>Login with Google</span>
+            </button>
+            <p class="toggle-link">Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+        </form>
+
+        <!-- Sign-Up Form -->
+        <form id="signUpForm" style="display: none;" onsubmit="handleSignUp(event)">
+            <div class="input-group">
+                <span>👤</span>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <span>📧</span>
+                <input type="email" id="newEmail" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <span>🔒</span>
+                <input type="password" id="newPassword" name="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword('newPassword')">👁️</span>
+            </div>
+            <p class="error-message" id="signUpError">Error during sign-up. Please try again.</p>
+            <button type="submit">Sign Up</button>
+            <button type="button" class="google-login" onclick="googleLogin()">
+                <span>🔗</span><span>Sign Up with Google</span>
+            </button>
+            <p class="toggle-link">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </form>
+
+        <div class="loading" id="loading">
+            <span>⏳ Logging you in...</span>
+        </div>
+    </div>
+
+    <script>
+        function showSignUp() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signUpForm').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function showLogin() {
+            document.getElementById('signUpForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            document.getElementById('loading').style.display = 'block';
+            setTimeout(() => {
+                const email = document.getElementById("email").value;
+                localStorage.setItem("userName", email.split("@")[0]);
+                alert(Welcome, ${email.split("@")[0]}!);
+                window.location.href = "WDT.html";
+            }, 2000);
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            localStorage.setItem("userName", name);
+            alert(Welcome, ${name}!);
+            window.location.href = "WDT.html";
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        function googleLogin() {
+            alert("Google Login functionality coming soon!");
+        }
+    </script>
+</body>
+
+</html>

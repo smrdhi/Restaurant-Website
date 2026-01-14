@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon 1.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Restaurant Website</title>
+<style> 
+html{
+    scroll-behavior : smooth;
+}
+body {
+    background: color mediumorchid;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("background1.jpg");
+    background-size: cover;
+   
+}
+
+header {
+    background-color: transparent;
+    /* background-image: linear-gradient(#ffed4ded,orange); */
+    padding: 20px;
+    text-align: center;
+    color:white;
+    font-family:cursive;
+    /* background-image: url("restaurant\ img.jpg"); */
+}
+
+header h1 {
+    font-family: Garamond ;
+    margin: 0;
+    font-size: 36px;
+}
+
+nav {
+    /* background-color: slategray;
+    background-image: linear-gradient(#90F7EC,#0396FF); */
+    color : #fe9aab;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color:hwb(350 76% 2%);
+    font-weight: bold;
+    margin:  13px 10px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: black;
+    color: white;
+}
+
+section {
+    
+    margin: 40px;
+    color : rgb(10, 9, 6);
+    background-color :rgb(249, 191, 202);
+    background-image: linear-gradient(#fb87ff,#feb85c);
+    border-radius: 20px;
+    text-align: center;
+    /* background-image: url("retro\ img.jpg"); */
+}
+
+/* footer {
+    color: rgb(16, 16, 16);
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: large;
+} */
+footer{
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: black;
+        color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: 'Arial', sans-serif;
+        font-size: larger;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
+    
+}
+/* footer f1{
+    position: relative; bottom: 10px; right :0px;
+} */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+marquee{
+    color :rgb(16, 16, 16);
+    background-color: coral;
+}
+
+
+
+.column{
+    float : left;
+    width : 25%;
+    padding : 0px 5px;
+}
+
+.row{
+    margin : 0 -5px;
+    text-align: center;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width : 600px){
+    .column{
+        width : 100%;
+        display : block;
+        margin-bottom : 10px;
+    }
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.row {
+    right-margin: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+      }
+
+
+.row:after {
+  
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+
+.card {
+    align-self: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  text-align: center;
+  background-color: #404041;
+  background-image:  linear-gradient(#fb87ff,#feb85c);
+  width: 200px;
+  height: 150px;
+  border-radius: 20px;
+  margin-left: 200px;
+ 
+  
+}
+
+.fa {font-size:50px;}
+
+.fa-twitter{
+    background-color: #000;
+    color: white;
+}
+address{
+    background-color: #000;
+    color : white;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1> SILVER SPOONS</h1> <div class="font-size : 20px;">Restaurant</div>
+</header>
+
+<nav>
+    <a href="about us.html">About Us</a>
+    <a href="menu.html">Menu</a>
+    <a href="booking restro.html">Book Your Slot</a>
+    <a href="resto img.html">View Our Place</a>
+    <a href="suggestions.html">Suggestions and Feedbacks for Us</a>
+    <a href="login.html"> Login</a>
+    <!-- <a href="#Franchise">More Branches</a> -->
+    
+   
+
+ <!-- <a href="#Connect-us">Connect with Us</a> -->
+</nav>
+
+<!-- <marquee><b><a heref="offers.html">Check out Our offers </a></b></marquee> -->
+<marquee>
+    <b><a href="offers.html" style="text-decoration: none; color: #000;">Check out our offers</a></b>
+  </marquee>
+
+<section id="about-us">
+    <!-- <a href="About Us" -->
+    <h2>About Us</h2>
+    <p><i>We are considered one of the best restaurant of the town.</i></p>
+    <p><i> We are open on Sunday to Saturday from 9am to 11pm. </i></p>
+</section>
+
+
+<section id="specialities">
+    <h2>Our Specialities</h2>
+    <p><i>Here we try to provide premium and best food quality and taste wise. We have chefs who will give a new flavour to every food you will try.</i></p>
+    <p><i>We have the best chefs over the countries to prepare the best food for you.</i></p>
+    <p><i>A section where we provide food exaclty like home which is heaven for people living away from their home.</i></p>
+</section>
+
+<section id="For you">
+    <h2>For You </h2>
+    <p><i> Enjoy the best cuisions with the pleasance of live violin.(6pm-11pm) </i></p>
+    <p><i> You can enjoy your food with breathtaking view of the hills through our terrace restaurant.</i></p>
+</section>
+   
+    <br><br><br><br><br>
+   
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <p><i class="fa fa-user"></i></p>
+                <h3> 900+</h3>
+                <p> Repeat Customers </p>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <div class="card">
+                <h3>From Our Side </h3>
+                <p> Not a single bite of leftover is thrown. It is being fed to stray animals by our employees on the way to their home.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card">
+                <p><i class="fa fa-smile-o"></i></p>
+                <h3> 2000+</h3>
+                <p> Happy Customers </p>
+            </div>
+
+<br><br><br><br>
+
+        
+    </div>
+
+<br><br><br>
+<br><br><br>
+
+    <a href="connect.html">Connect Us</a><br><br>
+
+    <!-- Social media links -->
+    
+        
+
+    <!-- Address -->
+    <div style="margin-top: 15px;">
+        Address:<br>
+        <strong>SILVER SPOONS</strong>,<br>
+        Little Gibbs Road,<br>
+        Malabar Hill, Mumbai.
+    </div>
+
+
+</body>
+</html>
